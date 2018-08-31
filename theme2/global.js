@@ -16,6 +16,8 @@ $(document).ready(function(){
 	var mainwidth = $('#main').width();
 	
 	$('.image.index1').css('width','125%'); // first image is masthead, do not allow content override
+
+	$('#top').addClass('inactive'); // navbar is inactive at first
 	
 	$('.image').each(function(){
 		$(this).css('padding-top', (100*$(this).data('maxheight')/$(this).data('maxwidth'))*($(this).width()/mainwidth) + '%');
@@ -39,7 +41,7 @@ $(document).ready(function(){
 	$('#top .author img, .arrow_circle').css('border-color',color);
 	$('#top .title .subscript, #nav_toggle').css('color',color);
 	
-	$('.image.index1').append('<div class="overlay" style="background-color: '+$('.image.index1').data('color2')+'"></div>');
+	// $('.image.index1').append('<div class="overlay" style="background-color: '+$('.image.index1').data('color2')+'"></div>');
 	$('.image').not('.index1, .fullwidth').click(function(){
 		// full screen mode
 		$('#fullscreen').addClass('active').append($(this).find('img').clone());
@@ -118,12 +120,14 @@ $(document).ready(function(){
 		$('#nav_toggle').click(function(){
 			if($('#top').hasClass('active')){
 				$('#top').removeClass('active');
-				$('#top').css('background','transparent');
+				$('#top').addClass('inactive');
+				// $('#top').css('background','transparent');
 				$('#nav_toggle .moretext').text($('#nav_toggle .moretext').data('text'));
 			}
 			else{
 				$('#top').css('background',$('.image.index1').data('color1'));
 				$('#top').addClass('active');
+				$('#top').removeClass('inactive');
 				$('#nav_toggle .moretext').data('text', $('#nav_toggle .moretext').text()).text('Hide');
 			}
 		});
