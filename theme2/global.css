@@ -6,14 +6,12 @@ html, body{
   font: 1em/2 georgia, times, serif;
   }
   
-  @media only screen and (min-width: 601px) {
-    body { font-size: 1.4em; }
-  }
+  body { font-size: 1.6em; }
   
-  @media only screen and (max-width: 600px) {
-    body { font-size: 2.0em; }
-  }
-  
+  /* @media only screen and (min-width: 801px) {
+    body { font-size: 1.6em; }
+  } */
+    
   @font-face {
     font-family: qeiza;
     src: url(qeiza.otf);
